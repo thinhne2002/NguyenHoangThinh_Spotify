@@ -9,10 +9,22 @@ var music = []
 var postcard = []
 var show = []
 var url = 'https://6551c0df5c69a77903290c9a.mockapi.io/Songs'
+var urluser = 'https://6551c0df5c69a77903290c9a.mockapi.io/User'
 export default function App() {
   var rou = useRoute();
   var nav = useNavigation();
   var [data,setData] = useState();
+  var [user,setUser] = useState([]);
+  var id = rou?.params?.id
+  var fn = ()=>{
+    fetch(urluser + '/' + id)
+      .then(response => response.json())
+      .then(json => {
+        user = json,
+        setUser(user)
+        console.log(user)
+        });
+  }
   var fc = ()=> {
     fetch(url)
       .then(response => response.json())
@@ -31,6 +43,7 @@ export default function App() {
       });
   }
   useEffect(fc,[])
+  useEffect(fn,[])
   console.log(data)
   console.log(music);
   console.log(postcard);
@@ -38,10 +51,10 @@ export default function App() {
   return (
     <View style={{width:390,height:770,backgroundColor:'#000000',alignItems:'center'}}>
       <View style={{width:390,height:70,alignItems:'center',flexDirection:'row'}}>
-        <Image source={{uri:rou?.params?.avatar}} style={{marginLeft:15,width:50,height:50,resizeMode:'contain',borderRadius:100}}/>
+        <Image source={{uri:user.avatar}} style={{marginLeft:15,width:50,height:50,resizeMode:'contain',borderRadius:100}}/>
         <Text style={{marginLeft:15,width:221,height:50,paddingTop:15,color: 'white', fontSize: 20, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
-          HI {rou?.params?.name}</Text>
-        <Pressable>
+          HI {user.name}</Text>
+        <Pressable onPress={()=>nav.navigate('LikedSong',{likedsong: user.likedsong,id: user.id,name: user.name})}>
           <MaterialIcons name="library-music" size={40} color="white" style={{marginLeft:30}} />
         </Pressable>
       </View>
@@ -68,7 +81,7 @@ export default function App() {
           data={music.slice(3, 9)} 
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Pressable style={{ width: 170, height: 50,backgroundColor:'#333333',marginRight:11,marginLeft:11,marginBottom:6,flexDirection:'row',borderRadius:6}}>
+            <Pressable onPress={()=>{console.log(item.name)}} style={{ width: 170, height: 50,backgroundColor:'#333333',marginRight:11,marginLeft:11,marginBottom:6,flexDirection:'row',borderRadius:6}}>
               <Image source={{uri:item.theme}} style={{width:50,height:50,borderRadius:6}}/>
               <View style={{marginLeft:10,width:100,height:50,justifyContent:'center'}}>
                 <Text style={{color: 'white', fontSize: 10, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
@@ -88,7 +101,7 @@ export default function App() {
             data={postcard} 
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Pressable style={{marginRight:15}}>
+              <Pressable onPress={()=>{console.log(item.name)}} style={{marginRight:15}}>
               <Image source={{uri:item.theme}} style={{width:130,height:130,borderRadius:6}}/>
               <Text style={{marginTop:7,width:130,height:15,color: 'white', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
                 {item.name}
@@ -106,7 +119,7 @@ export default function App() {
             data={show} 
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Pressable style={{marginRight:15}}>
+              <Pressable onPress={()=>{console.log(item.name)}} style={{marginRight:15}}>
               <Image source={{uri:item.theme}} style={{width:130,height:130,borderRadius:6}}/>
               <Text style={{marginTop:7,width:130,height:15,color: 'white', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
                 {item.name}
@@ -119,11 +132,11 @@ export default function App() {
         <Pressable>
           <Entypo name="home" size={40} color="white" />
         </Pressable>
-        <Pressable>
+        <Pressable onPress={()=>nav.navigate('Search')}>
           <AntDesign name="search1" size={40} color="white" />
         </Pressable>
         <Pressable>
-          <FontAwesome name="user" size={40} color="white" />
+          <Image source={{uri:user.avatar}} style={{width:40,height:40,borderRadius:100}} />
         </Pressable> 
       </View>
     </View>

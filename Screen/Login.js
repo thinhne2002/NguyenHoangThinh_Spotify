@@ -41,27 +41,22 @@ export default function App() {
         <View style={{flexDirection:'row',marginTop:19,width:280,height:45,alignItems:'center',justifyContent:'space-around'}}>
         <Pressable onPress={()=>{
             let check = -1;
-            let name1,avatar1,username1,likedsong1;
+            let name1,avatar1,username1,likedsong1,id1;
             if(user !== '' && password !== ''){
                 data.forEach((item)=>{
                     if(user === item.username && password === item.password){ 
                         check = 1;
-                        name1 = item.name
-                        avatar1 = item.avatar
-                        username1 = item.username
-                        likedsong1 = item.LikedSong
+                        id1 = item.id
                 }
                 });
                 if(check === 1){
                     nav.navigate('Home',{
-                        name: name1,
-                        avatar: avatar1,
-                        user: username1,
-                        likedsong: likedsong1
+                        id: id1
                     });
                     console.log('Nhập Đúng')
                 }else{
                     console.log('Nhập Sai Tài Khoản Hoặc Mật Khẩu')
+                    setUser(''),setPassword('')
                 }
             }else{
                 console.log('Vui Lòng Nhập Đủ Tài Khoản Mật Khẩu');

@@ -70,7 +70,7 @@ export default function App() {
                               password: password,
                               avatar: 'https://picsum.photos/200/300',
                               LikedSong: [],
-                              name: user, // Đây có lẽ là tên người dùng, cần kiểm tra xem nó là gì
+                              name: user, 
                               type: 'Spotify'
                             }),
                             headers: {
