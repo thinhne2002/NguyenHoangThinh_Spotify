@@ -67,12 +67,24 @@ export default function App() {
               </View>
               <Pressable onPress={()=>{
                 var songid = item.id;
-                liked.map((item, index) => {
-                  if (Array.isArray(item)) {
-                    console.log(item[index]);
-                  }
-                });
-              }}>
+                var updatedLiked = liked.filter(song => song.id !== songid);
+
+                fetch(url + '/' + id, {
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    LikedSong: updatedLiked
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                }).then((res) => {
+                  return res.json();
+                }).then((data) => {
+                  console.log(data.LikedSong);
+                  fc();
+                  console.log(data);
+                })
+               }}>
                 <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
               </Pressable>
               <Pressable>
@@ -94,7 +106,26 @@ export default function App() {
                 <Text style={{width:207,height:18,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.name}</Text>
                 <Text style={{width:207,height:15,color: 'rgba(255, 255, 255, 0.50)', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.singer}</Text>
               </View>
-              <Pressable onPress={()=>console.log(item.id)}>
+              <Pressable onPress={()=>{
+                var songid = item.id;
+                var updatedLiked = liked.filter(song => song.id !== songid);
+
+                fetch(url + '/' + id, {
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    LikedSong: updatedLiked
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                }).then((res) => {
+                  return res.json();
+                }).then((data) => {
+                  console.log(data.LikedSong);
+                  fc();
+                  console.log(data);
+                })
+               }}>
               <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
               </Pressable>
               <Pressable>
@@ -116,7 +147,26 @@ export default function App() {
               <Text style={{width:207,height:18,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.name}</Text>
               <Text style={{width:207,height:15,color: 'rgba(255, 255, 255, 0.50)', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.singer}</Text>
               </View>
-              <Pressable onPress={()=>console.log(item.id)}>
+              <Pressable onPress={()=>{
+                var songid = item.id;
+                var updatedLiked = liked.filter(song => song.id !== songid);
+
+                fetch(url + '/' + id, {
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    LikedSong: updatedLiked
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                }).then((res) => {
+                  return res.json();
+                }).then((data) => {
+                  console.log(data.LikedSong);
+                  fc();
+                  console.log(data);
+                })
+               }}>
               <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
               </Pressable>
               <Pressable>
