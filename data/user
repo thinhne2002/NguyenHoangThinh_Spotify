@@ -100,9 +100,9 @@
     "id": "1"
   },
   {
-    "username": "Binh",
+    "username": "Quynh",
     "password": "123456789",
-    "avatar": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700076081/User/vtvadsbocjjhlfmi7r4x.jpg",
+    "avatar": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700765354/User/rh1oeyf2lbwuxnnjrvxp.jpg",
     "LikedSong": [
       {
         "name": "Ghé Qua",
@@ -195,7 +195,7 @@
         "id": "10"
       }
     ],
-    "name": "Vũ Quốc Bình",
+    "name": "Dĩm Quỳnh",
     "type": "facebook",
     "id": "2"
   },
@@ -300,9 +300,9 @@
     "id": "3"
   },
   {
-    "username": "Huy",
+    "username": "Thang",
     "password": "123456789",
-    "avatar": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700076346/User/ttuacmej4r71cjhp8nup.jpg",
+    "avatar": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700765190/User/cqxtokhybdrbaigvoqlh.jpg",
     "LikedSong": [
       {
         "name": "Ghé Qua",
@@ -395,7 +395,7 @@
         "id": "10"
       }
     ],
-    "name": "Nguyễn Đình Huy",
+    "name": "Nguyễn Phước Thắng",
     "type": "google",
     "id": "4"
   },

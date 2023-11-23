@@ -34,7 +34,7 @@ export default function App() {
         data.forEach(item => {
           if (item.type === 'music') {
             music.push(item);
-          } else if (item.type === 'poscard') {
+          } else if (item.type === 'postcard') {
             postcard.push(item);
           } else if (item.type === 'show') {
             show.push(item);
@@ -44,10 +44,6 @@ export default function App() {
   }
   useEffect(fc,[])
   useEffect(fn,[])
-  console.log(data)
-  console.log(music);
-  console.log(postcard);
-  console.log(show);
   return (
     <View style={{width:390,height:770,backgroundColor:'#000000',alignItems:'center'}}>
       <View style={{width:390,height:70,alignItems:'center',flexDirection:'row'}}>
@@ -81,7 +77,7 @@ export default function App() {
           data={music.slice(3, 9)} 
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <Pressable onPress={()=>{console.log(item.name)}} style={{ width: 170, height: 50,backgroundColor:'#333333',marginRight:11,marginLeft:11,marginBottom:6,flexDirection:'row',borderRadius:6}}>
+            <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: user.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{ width: 170, height: 50,backgroundColor:'#333333',marginRight:11,marginLeft:11,marginBottom:6,flexDirection:'row',borderRadius:6}}>
               <Image source={{uri:item.theme}} style={{width:50,height:50,borderRadius:6}}/>
               <View style={{marginLeft:10,width:100,height:50,justifyContent:'center'}}>
                 <Text style={{color: 'white', fontSize: 10, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
@@ -93,15 +89,15 @@ export default function App() {
         />
       </View>
       <Text style={{paddingTop:3,marginTop:5,marginBottom:5,width:363,height:22,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
-          Poscard
+          Postcard
       </Text>
       <View style={{width:368,height:155}}>
           <FlatList
-            numColumns={3}
+            numColumns={4}
             data={postcard} 
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Pressable onPress={()=>{console.log(item.name)}} style={{marginRight:15}}>
+              <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: user.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{marginRight:15}}>
               <Image source={{uri:item.theme}} style={{width:130,height:130,borderRadius:6}}/>
               <Text style={{marginTop:7,width:130,height:15,color: 'white', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
                 {item.name}
@@ -119,7 +115,7 @@ export default function App() {
             data={show} 
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Pressable onPress={()=>{console.log(item.name)}} style={{marginRight:15}}>
+              <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: user.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{marginRight:15}}>
               <Image source={{uri:item.theme}} style={{width:130,height:130,borderRadius:6}}/>
               <Text style={{marginTop:7,width:130,height:15,color: 'white', fontSize: 12, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
                 {item.name}
@@ -132,10 +128,10 @@ export default function App() {
         <Pressable>
           <Entypo name="home" size={40} color="white" />
         </Pressable>
-        <Pressable onPress={()=>nav.navigate('Search')}>
+        <Pressable onPress={()=>nav.navigate('Search',{id: user.id})}>
           <AntDesign name="search1" size={40} color="white" />
         </Pressable>
-        <Pressable>
+        <Pressable onPress={()=>nav.navigate('Profile',{userid: user.id})}>
           <Image source={{uri:user.avatar}} style={{width:40,height:40,borderRadius:100}} />
         </Pressable> 
       </View>

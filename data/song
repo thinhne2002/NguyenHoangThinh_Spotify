@@ -1,146 +1,146 @@
 [
- {
-  "name": "Ghé Qua",
-  "singer": "Dick, Tofu, PC",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084170/Music/dffffo7mycwzo6zksdvl.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 1",
-  "id": "1"
- },
- {
-  "name": "Postcard Chữa Lành",
-  "singer": "Thuần Poscard",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084265/Music/jakxillbidwvs8sxu1yd.jpg",
-  "type": "postcard",
-  "like": true,
-  "url": "url 2",
-  "id": "2"
- },
- {
-  "name": "Perfect",
-  "singer": "Ed Sheeran",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084334/Music/e9f0cufemdiows8obefl.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 3",
-  "id": "3"
- },
- {
-  "name": "Từ Chối Hiểu",
-  "singer": "Ryder",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084393/Music/dymbpdysrpgm23wf9v9y.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 4",
-  "id": "4"
- },
- {
-  "name": "Tuổi trẻ vụng về 3",
-  "singer": "Thuần Poscard",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084496/Music/waytyqipilnigj68sywv.jpg",
-  "type": "postcard",
-  "like": true,
-  "url": "url 5",
-  "id": "5"
- },
- {
-  "name": "Già cùng nhau là được",
-  "singer": "Tùng Tea, Pc",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084534/Music/xiz7qemjit0ryhw9ncdw.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 6",
-  "id": "6"
- },
- {
-  "name": "Radio Tâm Sự",
-  "singer": "DTH HCM",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084585/Music/aianjqegqygcvavvxake.png",
-  "type": "show",
-  "like": true,
-  "url": "url 7",
-  "id": "7"
- },
- {
-  "name": "Bước qua mùa cô đơn",
-  "singer": "Vũ",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084629/Music/ockdpwoifev0wt4dsmjo.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 8",
-  "id": "8"
- },
- {
-  "name": "Không cay không về",
-  "singer": "DTH HCM",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084690/Music/snvmer2jvkryrbcjw2vo.jpg",
-  "type": "show",
-  "like": true,
-  "url": "url 9",
-  "id": "9"
- },
- {
-  "name": "We go hard",
-  "singer": "Rap Việt",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084777/Music/ijlffikeywhu987azbfh.jpg",
-  "type": "music",
-  "like": true,
-  "url": "url 10",
-  "id": "10"
- },
- {
-  "name": "Chuyện Rằng",
-  "singer": "Thịnh Suy",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084859/Music/xocjdhholnxiaili8jej.jpg",
-  "type": "music",
-  "like": false,
-  "url": "url 11",
-  "id": "11"
- },
- {
-  "name": "Thắc Mắc",
-  "singer": "Thịnh Suy",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084862/Music/r3rqz9euzzbonci7jzwh.jpg",
-  "type": "music",
-  "like": false,
-  "url": "url 12",
-  "id": "12"
- },
- {
-  "name": "Xa Nhà",
-  "singer": "Thuần Poscard",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084973/Music/f2rdm6f3hfq7ppuh1g2d.jpg",
-  "type": "postcard",
-  "like": false,
-  "url": "url 13",
-  "id": "13"
- },
- {
-  "name": "Hài Độc Thoại",
-  "singer": "Sài gòn Tếu",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700085019/Music/ijj6zh0dnerkkxjn29l9.png",
-  "type": "show",
-  "like": false,
-  "url": "url 14",
-  "id": "14"
- },
- {
-  "name": "Đã lỡ yêu em nhiều",
-  "singer": "singer 15",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700085052/Music/wyxz4kzgjvlqheysaqxr.jpg",
-  "type": "music",
-  "like": false,
-  "url": "url 15",
-  "id": "15"
- },
- {
-  "name": "Cái đẹp",
-  "singer": "Thuần Poscard",
-  "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700086943/Music/jtog3a0wkrvdexro4ma8.jpg",
-  "type": "postcard",
-  "like": false,
-  "url": "url 16",
-  "id": "16"
- }
+  {
+    "name": "Ghé Qua",
+    "singer": "Dick, Tofu, PC",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084170/Music/dffffo7mycwzo6zksdvl.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 1",
+    "id": "1"
+  },
+  {
+    "name": "Postcard Chữa Lành",
+    "singer": "Thuần Poscard",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084265/Music/jakxillbidwvs8sxu1yd.jpg",
+    "type": "postcard",
+    "like": true,
+    "url": "url 2",
+    "id": "2"
+  },
+  {
+    "name": "Perfect",
+    "singer": "Ed Sheeran",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084334/Music/e9f0cufemdiows8obefl.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 3",
+    "id": "3"
+  },
+  {
+    "name": "Từ Chối Hiểu",
+    "singer": "Ryder",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084393/Music/dymbpdysrpgm23wf9v9y.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 4",
+    "id": "4"
+  },
+  {
+    "name": "Tuổi trẻ vụng về 3",
+    "singer": "Thuần Poscard",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084496/Music/waytyqipilnigj68sywv.jpg",
+    "type": "postcard",
+    "like": true,
+    "url": "url 5",
+    "id": "5"
+  },
+  {
+    "name": "Già cùng nhau là được",
+    "singer": "Tùng Tea, Pc",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084534/Music/xiz7qemjit0ryhw9ncdw.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 6",
+    "id": "6"
+  },
+  {
+    "name": "Radio Tâm Sự",
+    "singer": "DTH HCM",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084585/Music/aianjqegqygcvavvxake.png",
+    "type": "show",
+    "like": true,
+    "url": "url 7",
+    "id": "7"
+  },
+  {
+    "name": "Bước qua mùa cô đơn",
+    "singer": "Vũ",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084629/Music/ockdpwoifev0wt4dsmjo.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 8",
+    "id": "8"
+  },
+  {
+    "name": "Không cay không về",
+    "singer": "DTH HCM",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084690/Music/snvmer2jvkryrbcjw2vo.jpg",
+    "type": "show",
+    "like": true,
+    "url": "url 9",
+    "id": "9"
+  },
+  {
+    "name": "We go hard",
+    "singer": "Rap Việt",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084777/Music/ijlffikeywhu987azbfh.jpg",
+    "type": "music",
+    "like": true,
+    "url": "url 10",
+    "id": "10"
+  },
+  {
+    "name": "Chuyện Rằng",
+    "singer": "Thịnh Suy",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084859/Music/xocjdhholnxiaili8jej.jpg",
+    "type": "music",
+    "like": false,
+    "url": "url 11",
+    "id": "11"
+  },
+  {
+    "name": "Thắc Mắc",
+    "singer": "Thịnh Suy",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084862/Music/r3rqz9euzzbonci7jzwh.jpg",
+    "type": "music",
+    "like": false,
+    "url": "url 12",
+    "id": "12"
+  },
+  {
+    "name": "Xa Nhà",
+    "singer": "Thuần Poscard",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700084973/Music/f2rdm6f3hfq7ppuh1g2d.jpg",
+    "type": "postcard",
+    "like": false,
+    "url": "url 13",
+    "id": "13"
+  },
+  {
+    "name": "Hài Độc Thoại",
+    "singer": "Sài gòn Tếu",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700085019/Music/ijj6zh0dnerkkxjn29l9.png",
+    "type": "show",
+    "like": false,
+    "url": "url 14",
+    "id": "14"
+  },
+  {
+    "name": "Đã lỡ yêu em nhiều",
+    "singer": "JustaTee ft Phương Ly",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700085052/Music/wyxz4kzgjvlqheysaqxr.jpg",
+    "type": "music",
+    "like": false,
+    "url": "url 15",
+    "id": "15"
+  },
+  {
+    "name": "Cái đẹp",
+    "singer": "Thuần Poscard",
+    "theme": "https://res.cloudinary.com/de0zbkkt9/image/upload/v1700086943/Music/jtog3a0wkrvdexro4ma8.jpg",
+    "type": "postcard",
+    "like": false,
+    "url": "url 16",
+    "id": "16"
+  }
 ]

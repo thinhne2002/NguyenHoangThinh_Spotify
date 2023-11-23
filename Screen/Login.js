@@ -41,7 +41,7 @@ export default function App() {
         <View style={{flexDirection:'row',marginTop:19,width:280,height:45,alignItems:'center',justifyContent:'space-around'}}>
         <Pressable onPress={()=>{
             let check = -1;
-            let name1,avatar1,username1,likedsong1,id1;
+            let id1;
             if(user !== '' && password !== ''){
                 data.forEach((item)=>{
                     if(user === item.username && password === item.password){ 

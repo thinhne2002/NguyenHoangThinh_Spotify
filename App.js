@@ -8,6 +8,8 @@ import  SignUp  from "./Screen/Sign Up";
 import  Home from "./Screen/Home";
 import  Search  from "./Screen/Search";
 import  LikedSong from "./Screen/LikedSong";
+import  Playmusic from "./Screen/Playmusic";
+import  Profile from "./Screen/Profile";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
         <Stack.Screen name='Home' component={Home} options={{headerShown:false}}/>
         <Stack.Screen name='Search' component={Search} options={{headerShown:false}}/>
         <Stack.Screen name='LikedSong' component={LikedSong} options={{headerShown:false}} />
+        <Stack.Screen name='Profile' component={Profile} options={{headerShown:false}} />
+        <Stack.Screen name='Playmusic' component={Playmusic} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

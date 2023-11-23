@@ -6,34 +6,69 @@ import { Image,  Pressable,  StyleSheet, Text, TextInput, View } from 'react-nat
 
 var data = [];
 var liked = [];
+var songs = [];
 var url = 'https://6551c0df5c69a77903290c9a.mockapi.io/User'
+var urlsong = 'https://6551c0df5c69a77903290c9a.mockapi.io/Songs'
 export default function App() {
-  var nav = useNavigation();
-  var rou = useRoute();
-  var [data,setData] = useState([]);
-  var [filter, setFilter] = useState('');
-  var id = rou?.params?.id
-  var fc = ()=> {
-    fetch(url + '/' + id)
-      .then(response => response.json())
-      .then(json => {
-        data = json,
-        setData(data)
-        console.log(data)
-        liked = data.LikedSong
-        console.log(data.LikedSong.length)
-      });
+const nav = useNavigation();
+const rou = useRoute();
+const [songs,setSong] = useState([]);
+const [data, setData] = useState([]);
+const [filter, setFilter] = useState('');
+const [liked, setLiked] = useState([]); // Sử dụng state mới để lưu trữ danh sách đã lọc
+const id = rou?.params?.id;
+
+const fc = () => {
+  fetch(url + '/' + id)
+    .then(response => response.json())
+    .then(json => {
+      setData(json);
+      setLiked(json.LikedSong); // Cập nhật danh sách liked từ dữ liệu fetch về
+    });
+};
+useEffect(fc,[]);
+
+const fm = ()=>{
+  fetch(urlsong)
+    .then(response => response.json())
+    .then(json => {
+      setSong(json);
+    });
+};
+useEffect(fm,[])
+
+function removeVietnameseAccent(str) {
+  str = str.toLowerCase();
+  str = str.replace(/[áàảãạăắằẳẵặâấầẩẫậ]/g, 'a');
+  str = str.replace(/[éèẻẽẹêếềểễệ]/g, 'e');
+  str = str.replace(/[íìỉĩị]/g, 'i');
+  str = str.replace(/[óòỏõọôốồổỗộơớờởỡợ]/g, 'o');
+  str = str.replace(/[úùủũụưứừửữự]/g, 'u');
+  str = str.replace(/[ýỳỷỹỵ]/g, 'y');
+  str = str.replace(/đ/g, 'd');
+  return str;
+}
+
+useEffect(() => {
+  if (filter !== '') {
+    const filteredLiked = liked.filter(item => removeVietnameseAccent(item.name).includes(removeVietnameseAccent(filter)));
+    setLiked(filteredLiked); // Cập nhật danh sách liked với dữ liệu đã lọc
+  } else {
+    fc(); // Nếu filter rỗng, tải lại dữ liệu đầy đủ
   }
-  useEffect(fc,[])
+}, [filter]);
+
+console.log(liked)
   return (
-    <View style={{background: 'linear-gradient(180deg, rgba(131, 43, 236, 1) 50%, rgba(0, 0,0, 1) 100%)'}}>
+    <View style={{width:'100%',height:850,background: 'linear-gradient(180deg, rgba(131, 43, 236, 1) 50%, rgba(0, 0,0, 1) 100%)'}}>
       <View style={{marginLeft:16,width:363,height:35,flexDirection:'row',alignItems:'center',marginTop:19}}>
         <Pressable onPress={()=>nav.navigate('Home')}>
           <Ionicons name="arrow-back-sharp" size={33} color="black" />
         </Pressable>
         <View style={{width:247,height:33,alignItems:'center',marginLeft:8,backgroundColor:'#9370DB',flexDirection:'row'}}>
           <Ionicons name="search-circle-sharp" size={26} color="green" style={{marginLeft:5}}/>
-          <TextInput placeholder='Find in Liked Song' style={{width:187,height:26,color: 'rgba(255, 255, 255, 0.60)', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word',alignItems:'center',marginLeft:15}}></TextInput>
+          <TextInput onChangeText={(filter)=>setFilter(filter)} 
+            value={filter} autoCorrect={false} placeholder='Find in Liked Song' style={{width:187,height:26,color: 'rgba(255, 255, 255, 0.60)', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word',alignItems:'center',marginLeft:15}}></TextInput>
         </View>
         <Pressable style={{width:65,height:33,alignItems:'center',justifyContent:'center',backgroundColor:'#9370DB',marginLeft:10}}>
           <Text style={{textAlign: 'center', color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>
@@ -59,7 +94,7 @@ export default function App() {
         if(item.type === 'music' && item.like === true){
           return(
             <View>
-              <Pressable style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
+              <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: data.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
               <Image source={{uri:item.theme}} style={{width:50,height:50,borderRadius:6}}/>
               <View style={{width:226,height:50,marginLeft:12,justifyContent:'space-around'}}>
               <Text style={{width:207,height:18,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.name}</Text>
@@ -67,8 +102,9 @@ export default function App() {
               </View>
               <Pressable onPress={()=>{
                 var songid = item.id;
+                var songname = item.name;
                 var updatedLiked = liked.filter(song => song.id !== songid);
-
+                //Xóa khỏi mục yêu thích
                 fetch(url + '/' + id, {
                   method: 'PUT',
                   body: JSON.stringify({
@@ -83,6 +119,21 @@ export default function App() {
                   console.log(data.LikedSong);
                   fc();
                   console.log(data);
+                })
+                //Cập nhật trong list nhạc của hệ thống là đã hết thích
+                var updatedsong = songs.filter(song => song.name === songname)
+                fetch(urlsong + '/' + updatedsong[0].id,{
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    like: false
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                  }).then((res) => {
+                    return res.json();
+                  }).then((data) => {
+                    console.log(data);
                 })
                }}>
                 <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
@@ -100,7 +151,7 @@ export default function App() {
         if(item.type === 'postcard' && item.like === true){
           return(
             <View >
-              <Pressable style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
+              <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: data.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
               <Image source={{uri:item.theme}} style={{width:50,height:50,borderRadius:6}}/>
               <View style={{width:226,height:50,marginLeft:12,justifyContent:'space-around'}}>
                 <Text style={{width:207,height:18,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.name}</Text>
@@ -108,8 +159,9 @@ export default function App() {
               </View>
               <Pressable onPress={()=>{
                 var songid = item.id;
+                var songname = item.name;
                 var updatedLiked = liked.filter(song => song.id !== songid);
-
+                //Xóa khỏi mục yêu thích
                 fetch(url + '/' + id, {
                   method: 'PUT',
                   body: JSON.stringify({
@@ -124,6 +176,21 @@ export default function App() {
                   console.log(data.LikedSong);
                   fc();
                   console.log(data);
+                })
+                //Cập nhật trong list nhạc của hệ thống là đã hết thích
+                var updatedsong = songs.filter(song => song.name === songname)
+                fetch(urlsong + '/' + updatedsong[0].id,{
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    like: false
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                  }).then((res) => {
+                    return res.json();
+                  }).then((data) => {
+                    console.log(data);
                 })
                }}>
               <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
@@ -141,7 +208,7 @@ export default function App() {
         if(item.type === 'show' && item.like === true){
           return(
             <View>
-              <Pressable style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
+              <Pressable onPress={()=>nav.navigate('Playmusic',{check:true,userid: data.id,id:item.id,theme:item.theme,name:item.name,singer:item.singer,like:item.like})} style={{width:355,marginLeft:16,marginTop:10,height:50,flexDirection:'row',alignItems:'center'}}>
               <Image source={{uri:item.theme}} style={{width:50,height:50,borderRadius:6}}/>
               <View style={{width:226,height:50,marginLeft:12,justifyContent:'space-around'}}>
               <Text style={{width:207,height:18,color: 'white', fontSize: 15, fontFamily: 'Arial', fontWeight: '700', wordWrap: 'break-word'}}>{item.name}</Text>
@@ -150,7 +217,7 @@ export default function App() {
               <Pressable onPress={()=>{
                 var songid = item.id;
                 var updatedLiked = liked.filter(song => song.id !== songid);
-
+                var songname = item.name;
                 fetch(url + '/' + id, {
                   method: 'PUT',
                   body: JSON.stringify({
@@ -165,6 +232,21 @@ export default function App() {
                   console.log(data.LikedSong);
                   fc();
                   console.log(data);
+                })
+                //Cập nhật trong list nhạc của hệ thống là đã hết thích
+                var updatedsong = songs.filter(song => song.name === songname)
+                fetch(urlsong + '/' + updatedsong[0].id,{
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    like: false
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                  },
+                  }).then((res) => {
+                    return res.json();
+                  }).then((data) => {
+                    console.log(data);
                 })
                }}>
               <Feather name="x" size={24} color="red" style={{marginRight:15}}/>
